@@ -1,4 +1,4 @@
-name: Prepare
+name: CI-CD
 
 # Trigger the workflow on pull request
 on: [pull_request]
@@ -34,6 +34,7 @@ jobs:
             - run: npm run build:doc-lib
     build-app:
         runs-on: ubuntu-latest
+        name: Build /examples
         needs: [build-components-lib, build-doc-lib]
         steps:
             - run: npm run build:examples
