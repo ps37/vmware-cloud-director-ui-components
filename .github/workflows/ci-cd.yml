@@ -9,21 +9,27 @@ jobs:
     prepare-components:
         name: Lint /components
         steps:
-            run: npm run lint components
+            - run: npm run lint components
     prepare-doc-lib:
         name: Lint /doc-lib
         steps:
-            run: npm run lint doc-lib
+            - run: npm run lint doc-lib
     prepare-examples:
         name: Lint /examples
         steps:
-            run: npm run lint examples
+            - run: npm run lint examples
 
     build-components-lib:
         name: Build /components
         needs: [prepare-components, prepare-doc-lib, prepare-examples]
+        steps:
+            - run: npm run build:components
     build-doc-lib:
         name: Build /doc-lib
         needs: [prepare-components, prepare-doc-lib, prepare-examples]
+        steps:
+            - run: npm run build:doc-lib
     build-app:
         needs: [build-components-lib, build-doc-lib]
+        steps:
+            - run: npm run build:examples
