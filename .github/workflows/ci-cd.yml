@@ -32,7 +32,7 @@ jobs:
     build-components-lib:
         runs-on: ubuntu-latest
         name: Build /components
-        needs: [lint-components, lint-doc-lib, lint-examples]
+        needs: [lint-projects]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
@@ -44,7 +44,7 @@ jobs:
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
-        needs: [lint-components, lint-doc-lib, lint-examples]
+        needs: [lint-projects]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
