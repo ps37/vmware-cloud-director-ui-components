@@ -9,7 +9,7 @@ jobs:
         name: Lint /components
         steps:
             - run: npm run lint components
-              working-directory: ./
+              working-directory: ../
     prepare-doc-lib:
         runs-on: ubuntu-latest
         name: Lint /doc-lib
