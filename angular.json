@@ -197,6 +197,12 @@
               "devServerTarget": "examples:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/vmware-cloud-director-ui-components/"
+          }
         }
       }
     }

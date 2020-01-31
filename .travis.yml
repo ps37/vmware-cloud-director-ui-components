@@ -12,7 +12,8 @@ stages:
     - build-app
     - test
     - name: publish
-      if: branch = travis-test-3
+      if: branch = master
+    - deploy
 
 jobs:
     include:
@@ -45,3 +46,7 @@ jobs:
         - stage: test
           name: Unit Tests for /doc-lib
           script: npm run test:ci:doc-lib
+
+        - stage: deploy
+          name: Deploying to Github pages
+          script: npx ng deploy
