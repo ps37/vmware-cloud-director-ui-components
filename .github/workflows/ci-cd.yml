@@ -25,14 +25,21 @@ jobs:
             - run: |
                   npm install
                   npm run lint components
+
     lint-doc-lib:
         runs-on: ubuntu-latest
         name: Lint /doc-lib
         needs: [cache-npm-dependencies]
         steps:
             - uses: actions/checkout@v2
+
             - uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: node_modules
+
             - run: npm run lint doc-lib
+
     lint-examples:
         runs-on: ubuntu-latest
         name: Lint /examples
@@ -48,6 +55,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: npm run build:components
+
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
@@ -55,6 +63,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: npm run build:doc-lib
+
     build-app:
         runs-on: ubuntu-latest
         name: Build /examples
