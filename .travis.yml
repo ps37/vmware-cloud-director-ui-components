@@ -7,11 +7,12 @@ cache:
         - dist/doc-lib
 stages:
     - prepare
-    - build-libs
+    - build-components-lib
+    - build-doc-lib
     - build-app
     - test
     - name: publish
-      if: branch = travis-test-2
+      if: branch = travis-test-3
 
 jobs:
     include:
@@ -25,10 +26,11 @@ jobs:
           name: Lint /examples
           script: npm run lint examples
 
-        - stage: build-libs
+        - stage: build-components-lib
           name: Build /components
           script: npm run build:components
-        - stage: build-libs
+
+        - stage: build-doc-lib
           name: Build /doc-lib
           script: npm run build:doc-lib
 
