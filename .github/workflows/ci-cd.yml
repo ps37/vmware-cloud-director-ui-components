@@ -21,9 +21,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
             - run: |
                   npm run lint components
                   npm run lint doc-lib
@@ -36,9 +36,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
             - run: npm run build:components
 
     build-doc-lib:
@@ -48,9 +48,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
             - run: npm run build:doc-lib
 
     build-app:
@@ -60,7 +60,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
             - run: npm run build:examples
