@@ -4,16 +4,24 @@ name: CI-CD
 on: [pull_request]
 
 jobs:
-    prepare:
+    cache-npm-dependencies:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+
             - run: npm install
+
+            - uses: actions/cache@v1
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
 
     lint-components:
         runs-on: ubuntu-latest
         name: Lint /components
-        needs: [prepare]
+        needs: [cache-npm-dependencies]
         steps:
             - uses: actions/checkout@v2
             - run: |
@@ -22,14 +30,14 @@ jobs:
     lint-doc-lib:
         runs-on: ubuntu-latest
         name: Lint /doc-lib
-        needs: [prepare]
+        needs: [cache-npm-dependencies]
         steps:
             - uses: actions/checkout@v2
             - run: npm run lint doc-lib
     lint-examples:
         runs-on: ubuntu-latest
         name: Lint /examples
-        needs: [prepare]
+        needs: [cache-npm-dependencies]
         steps:
             - uses: actions/checkout@v2
             - run: npm run lint examples
