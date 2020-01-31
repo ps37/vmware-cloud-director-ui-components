@@ -10,6 +10,7 @@ stages:
     - prepare
     - build-components-lib
     - build-doc-lib
+    - build-documentation
     - build-app
     - test
     - name: publish
@@ -36,6 +37,12 @@ jobs:
           name: Build /doc-lib
           script: npm run build:doc-lib
 
+        - stage: build-documentation
+          name: Build Compodoc Documentation JSONS
+          script:
+              - npm run build-components-doc
+              - npm run build-examples-doc
+
         - stage: build-app
           name: Build /examples
           script: npm run build:examples
@@ -43,6 +50,7 @@ jobs:
         #        - stage: test
         #          name: Unit tests for /components
         #          script: npm run test:ci:components
+
         - stage: test
           name: Unit Tests for /doc-lib
           script: npm run test:ci:doc-lib
