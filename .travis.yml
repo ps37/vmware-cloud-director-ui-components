@@ -43,6 +43,7 @@ jobs:
               - cd ./projects/doc-lib
               - npm install
               - npm link
+              - cd ../../
               - npm run build-components-doc
               - npm run build-examples-doc
 
