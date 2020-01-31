@@ -6,9 +6,9 @@ cache:
         - dist/components
         - dist/doc-lib
 deploy:
-    provider: pages:git
-    token: $GH_PAGES_TOKEN
-    edge: true
+    provider: pages
+    skip_cleanup: true
+    github_token: GH_PAGES_TOKEN
 
 stages:
     - prepare
