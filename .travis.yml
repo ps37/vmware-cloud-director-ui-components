@@ -48,4 +48,9 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
+          provider: pages
+          skip_cleanup: true
+          github_token: $GH_TOKEN # Set in the settings page of your repository, as a secure variable
+          on:
+              branch: travis-test-3
           script: npx ng deploy --no-silent
