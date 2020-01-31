@@ -8,7 +8,7 @@ cache:
 deploy:
     provider: pages
     skip_cleanup: true
-    github_token: GH_PAGES_TOKEN
+    github_token: $GH_PAGES_TOKEN
 
 stages:
     - prepare
