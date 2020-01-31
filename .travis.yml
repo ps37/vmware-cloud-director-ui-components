@@ -5,6 +5,11 @@ cache:
     directories:
         - dist/components
         - dist/doc-lib
+deploy:
+    provider: pages:git
+    token: $GH_PAGES_TOKEN
+    edge: true
+
 stages:
     - prepare
     - build-components-lib
@@ -48,9 +53,4 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
-          provider: pages
-          skip_cleanup: true
-          github_token: $GH_TOKEN # Set in the settings page of your repository, as a secure variable
-          on:
-              branch: travis-test-3
           script: npx ng deploy --no-silent
