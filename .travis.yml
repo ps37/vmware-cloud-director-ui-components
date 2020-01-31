@@ -5,6 +5,9 @@ cache:
     directories:
         - dist/components
         - dist/doc-lib
+        - projects/examples/gen/components-compodoc-documentation
+        - projects/examples/gen/examples-compodoc-documentation
+#        - dist/examples
 
 stages:
     - prepare
@@ -47,9 +50,9 @@ jobs:
               - npm run build-components-doc
               - npm run build-examples-doc
 
-        - stage: build-app
-          name: Build /examples
-          script: npm run build:examples
+        #        - stage: build-app
+        #          name: Build /examples
+        #          script: npm run build:examples
 
         #        - stage: test
         #          name: Unit tests for /components
@@ -62,3 +65,8 @@ jobs:
         - stage: deploy
           name: Deploying to Github pages
           script: npx ng deploy --no-silent
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  github_token: $GH_TOKEN
+#  local_dir: ./dist/examples
