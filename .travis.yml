@@ -49,4 +49,4 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
-          script: npx ng deploy
+          script: npx ng deploy --no-silent
