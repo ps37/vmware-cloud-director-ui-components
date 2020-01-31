@@ -21,9 +21,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
             - run: |
                   npm run lint components
                   npm run lint doc-lib
@@ -32,25 +32,34 @@ jobs:
     build-components-lib:
         runs-on: ubuntu-latest
         name: Build /components
-        needs: [lint-components, lint-doc-lib, lint-examples]
+        needs: [lint-projects]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/components
+                  key: components
             - run: npm run build:components
 
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
-        needs: [lint-components, lint-doc-lib, lint-examples]
+        needs: [lint-projects]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/doc-lib
+                  key: doc-lib
+                  
             - run: npm run build:doc-lib
 
     build-app:
@@ -60,7 +69,15 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
-                  with:
-                      path: node_modules
-                      key: node_modules
+              with:
+                  path: node_modules
+                  key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/doc-lib
+                  key: doc-lib
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/components
+                  key: components
             - run: npm run build:examples
