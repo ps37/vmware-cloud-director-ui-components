@@ -1,35 +1,39 @@
 name: Prepare
 
-runs-on: ubuntu-latest
-
 # Trigger the workflow on pull request
 on: [pull_request]
 
 jobs:
     prepare-components:
+        runs-on: ubuntu-latest
         name: Lint /components
         steps:
             - run: npm run lint components
     prepare-doc-lib:
+        runs-on: ubuntu-latest
         name: Lint /doc-lib
         steps:
             - run: npm run lint doc-lib
     prepare-examples:
+        runs-on: ubuntu-latest
         name: Lint /examples
         steps:
             - run: npm run lint examples
 
     build-components-lib:
+        runs-on: ubuntu-latest
         name: Build /components
         needs: [prepare-components, prepare-doc-lib, prepare-examples]
         steps:
             - run: npm run build:components
     build-doc-lib:
+        runs-on: ubuntu-latest
         name: Build /doc-lib
         needs: [prepare-components, prepare-doc-lib, prepare-examples]
         steps:
             - run: npm run build:doc-lib
     build-app:
+        runs-on: ubuntu-latest
         needs: [build-components-lib, build-doc-lib]
         steps:
             - run: npm run build:examples
