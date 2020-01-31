@@ -40,6 +40,9 @@ jobs:
         - stage: build-documentation
           name: Build Compodoc Documentation JSONS
           script:
+              - cd ./projects/doc-lib
+              - npm install
+              - npm link
               - npm run build-components-doc
               - npm run build-examples-doc
 
