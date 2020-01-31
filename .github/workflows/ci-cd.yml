@@ -14,7 +14,7 @@ jobs:
                   path: node_modules
                   key: node_modules
 
-    lint-projects:
+    lint-components:
         runs-on: ubuntu-latest
         name: Lint /components
         needs: [cache-npm-dependencies]
@@ -24,15 +24,36 @@ jobs:
               with:
                   path: node_modules
                   key: node_modules
-            - run: |
-                  npm run lint components
-                  npm run lint doc-lib
-                  npm run lint examples
+            - run: npm run lint components
+
+    lint-doc-lib:
+        runs-on: ubuntu-latest
+        name: Lint /doc-lib
+        needs: [cache-npm-dependencies]
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: node_modules
+            - run: npm run lint doc-lib
+
+    lint-examples:
+        runs-on: ubuntu-latest
+        name: Lint /examples
+        needs: [cache-npm-dependencies]
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: node_modules
+            - run: npm run lint examples
 
     build-components-lib:
         runs-on: ubuntu-latest
         name: Build /components
-        needs: [lint-projects]
+        needs: [lint-components]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
@@ -48,7 +69,7 @@ jobs:
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
-        needs: [lint-projects]
+        needs: [lint-doc-lib]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
@@ -59,13 +80,12 @@ jobs:
               with:
                   path: ./dist/doc-lib
                   key: doc-lib
-                  
             - run: npm run build:doc-lib
 
     build-app:
         runs-on: ubuntu-latest
         name: Build /examples
-        needs: [build-components-lib, build-doc-lib]
+        needs: [lint-examples, build-components-lib, build-doc-lib]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/cache@v1
