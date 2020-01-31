@@ -15,18 +15,23 @@ jobs:
         name: Lint /components
         needs: [prepare]
         steps:
-            - run: npm run lint components
+            - uses: actions/checkout@v2
+            - run: |
+                  npm install
+                  npm run lint components
     lint-doc-lib:
         runs-on: ubuntu-latest
         name: Lint /doc-lib
         needs: [prepare]
         steps:
+            - uses: actions/checkout@v2
             - run: npm run lint doc-lib
     lint-examples:
         runs-on: ubuntu-latest
         name: Lint /examples
         needs: [prepare]
         steps:
+            - uses: actions/checkout@v2
             - run: npm run lint examples
 
     build-components-lib:
@@ -34,16 +39,19 @@ jobs:
         name: Build /components
         needs: [lint-components, lint-doc-lib, lint-examples]
         steps:
+            - uses: actions/checkout@v2
             - run: npm run build:components
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
         needs: [lint-components, lint-doc-lib, lint-examples]
         steps:
+            - uses: actions/checkout@v2
             - run: npm run build:doc-lib
     build-app:
         runs-on: ubuntu-latest
         name: Build /examples
         needs: [build-components-lib, build-doc-lib]
         steps:
+            - uses: actions/checkout@v2
             - run: npm run build:examples
