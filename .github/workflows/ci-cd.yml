@@ -4,33 +4,41 @@ name: CI-CD
 on: [pull_request]
 
 jobs:
-    prepare-components:
+    prepare:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: npm install
+
+    lint-components:
         runs-on: ubuntu-latest
         name: Lint /components
+        needs: [prepare]
         steps:
             - run: npm run lint components
-              working-directory: ../
-    prepare-doc-lib:
+    lint-doc-lib:
         runs-on: ubuntu-latest
         name: Lint /doc-lib
+        needs: [prepare]
         steps:
             - run: npm run lint doc-lib
-    prepare-examples:
+    lint-examples:
         runs-on: ubuntu-latest
         name: Lint /examples
+        needs: [prepare]
         steps:
             - run: npm run lint examples
 
     build-components-lib:
         runs-on: ubuntu-latest
         name: Build /components
-        needs: [prepare-components, prepare-doc-lib, prepare-examples]
+        needs: [lint-components, lint-doc-lib, lint-examples]
         steps:
             - run: npm run build:components
     build-doc-lib:
         runs-on: ubuntu-latest
         name: Build /doc-lib
-        needs: [prepare-components, prepare-doc-lib, prepare-examples]
+        needs: [lint-components, lint-doc-lib, lint-examples]
         steps:
             - run: npm run build:doc-lib
     build-app:
