@@ -39,6 +39,10 @@ jobs:
               with:
                   path: node_modules
                   key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/components
+                  key: components
             - run: npm run build:components
 
     build-doc-lib:
@@ -51,6 +55,11 @@ jobs:
               with:
                   path: node_modules
                   key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/doc-lib
+                  key: doc-lib
+                  
             - run: npm run build:doc-lib
 
     build-app:
@@ -63,4 +72,12 @@ jobs:
               with:
                   path: node_modules
                   key: node_modules
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/doc-lib
+                  key: doc-lib
+            - uses: actions/cache@v1
+              with:
+                  path: ./dist/components
+                  key: components
             - run: npm run build:examples
