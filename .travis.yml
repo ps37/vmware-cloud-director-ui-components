@@ -56,7 +56,7 @@ jobs:
 
         - stage: publish
           name: Publishing components to npm registry
-          script: skip
+          script: echo "Deploying to npm user psimhadri..."
           deploy:
               provider: npm
               email: prudhvi.af121@gmail.com
