@@ -22,15 +22,15 @@ stages:
 
 jobs:
     include:
-        - stage: prepare
-          name: Lint /components
-          script: npm run lint components
-        - stage: prepare
-          name: Lint /doc-lib
-          script: npm run lint doc-lib
-        - stage: prepare
-          name: Lint /examples
-          script: npm run lint examples
+        #        - stage: prepare
+        #          name: Lint /components
+        #          script: npm run lint components
+        #        - stage: prepare
+        #          name: Lint /doc-lib
+        #          script: npm run lint doc-lib
+        #        - stage: prepare
+        #          name: Lint /examples
+        #          script: npm run lint examples
 
         - stage: build-components-lib
           name: Build /components
@@ -49,24 +49,26 @@ jobs:
               - cd ../../
               - npm run build-components-doc
               - npm run build-examples-doc
+              - npm run build:examples-aot
 
-        #        - stage: build-app
-        #          name: Build /examples
-        #          script: npm run build:examples
+#        - stage: build-app
+#          name: Build /examples
+#          script: npm run build:examples
 
-        #        - stage: test
-        #          name: Unit tests for /components
-        #          script: npm run test:ci:components
+#        - stage: test
+#          name: Unit tests for /components
+#          script: npm run test:ci:components
 
-        - stage: test
-          name: Unit Tests for /doc-lib
-          script: npm run test:ci:doc-lib
+#        - stage: test
+#          name: Unit Tests for /doc-lib
+#          script: npm run test:ci:doc-lib
 
-        - stage: deploy
-          name: Deploying to Github pages
-          script: npx ng deploy --no-silent
-#deploy:
-#  provider: pages
-#  skip_cleanup: true
-#  github_token: $GH_TOKEN
-#  local_dir: ./dist/examples
+#        - stage: deploy
+#          name: Deploying to Github pages
+#          script: npx ng deploy --no-silent
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: ./dist/examples
