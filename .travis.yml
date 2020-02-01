@@ -58,6 +58,7 @@ jobs:
           name: Publishing components to npm registry
           script: echo "Deploying to npm user psimhadri..."
           deploy:
+              edge: true
               provider: npm
               email: prudhvi.af121@gmail.com
               api_key:
