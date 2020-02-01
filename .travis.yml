@@ -39,7 +39,7 @@ jobs:
           name: Build /doc-lib
           script: npm run build:doc-lib
 
-        - stage: build-app
+        - stage: build-app-aot
           name: Build /examples
           before_script:
               - cd ./projects/doc-lib
