@@ -61,7 +61,7 @@ jobs:
               provider: npm
               email: prudhvi.af121@gmail.com
               api_key:
-                  secure: eBl4hoXKJ9iFuiOr6KyuH3uGTjexJBz7zJenlRubeDjXS9vfkZkirktF+qdyk8YFWv7dgOlqwuMlkPc3ajoZ82hHAEaR1CzOejvI52ku+BF2Ry/vmcMNxEvX8yZ+HOZZoDOuuME9Hr/0lL2hYfpMDjZTqDJ8RA7Z/bKOvpaeGKEedrHGA5JLUD5MInYLgLTByilN2atTqiFiFsU6EykeXOHlKI1xceyaNdFbYD4J1FRMC8urkLJkNqo5W6kuqIy13kz5Df4OAHnhNzkZozv0bjJSesrYWarIXcsTy2VtyyWvvDkpsOihocCOHqOjPR/XoQ89l2E/cLlypDU8yfWtkkJW0Jn3cX0VvrerSvSAXzSrMnxig8H+ErM+ALMjUWZjEOKeK9WLZGvKRBaQ9qo+mOMD194C0AY1U/si4crpBw607zEMm/HSZOwtRjf9UjDeAuaVDg7myq/9IIW9OqFY8rvjwqNma+FguBftGmEWeUmjU4u1pXChe0odNU4BigdC5TIEFON+hAo0CRbtdmE4YaoCjfPvzP0/bljFN4IkTabQMJBle+z10suB8uf8VMvM8lbaBssRUoF8QxYlcoYgNJScQgJbX3xOrN003TpMMwESCjwLMeTbK6mnwiPRwVvVpqNjVshKuG8SytPF3H0pvdBJUIwiqE8DzZZ13NIMLhc=
+                  secure: WYQNGz1JOI/hcLoFdubl2QXsn4qFPihGHOp822K/8rjdLQ+T8UOYj+tk8OGBal6q5uG/+oZt/Scd8xYpH23L5NAeglcFBw78vnsRopGgG38IzYVqkVfE+2Qs9CveLhXXWiKhoFhwVqfDmLiJ4rbQLb99OY0ZXpcJYUVQjkI7vG7DHD+mxv4/OUKSzg9DWk+ujfdS8GCapJ2znls4+jp1FKhQzUODNZCS9MO9sYHFgd/gA28FF1UdRamc7QqS1JClHDqJ3MUyXpQZ0PWERgPZG31s3WB6VHMJgiifzsJsGu0egl7kXLEtVzvEGc5qhMPFl36S+YmjTyZA1FH2U6sSoubgAsF4l0+VpJ+98T1GVb38U36qgg7QHF6ANX8Rgv9AXSlg/OTBYOE6R2KO/Ydmxfe5vp6yfFiAqL5OEvgiBmpF9RTF7WxF/VgfD/1dI/HYVctxdskE8W7sTQmtPCmZf9SDBTLk1fvHfp7Iqyd8oguNRpNda5itvvwslosrVkdpBr3ScAZW0w7TBS94Qa/G/Q6j6iIOpEldQw1tWglOQ1ZCkoi6FPrjJxwk4WMSJ/4a1S7FBus7voaTsx3a/cmPgGojWUlJl2rtBaKmu79loxQIJRmDE080lj4IAQlV47XVM9vLR/b27+emjON8EuSfxXGNxki81zLeu4Xs1rVQMOQ=
               on:
                   repo: ps37/vmware-cloud-director-ui-components
                   branch: travis-test-4
