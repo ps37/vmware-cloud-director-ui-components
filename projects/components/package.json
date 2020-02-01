@@ -1,9 +1,9 @@
 {
-    "name": "@psimhadri/ui-components",
+    "name": "@ps37/ui-components",
     "publishConfig": {
         "access": "public"
     },
-    "version": "0.0.1",
+    "version": "0.0.3",
     "peerDependencies": {
         "@angular/common": "^8.2.14",
         "@angular/core": "^8.2.14"

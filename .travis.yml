@@ -31,27 +31,28 @@ jobs:
           name: Build /components
           script: npm run build:components
 
-        - stage: build-doc-lib
-          name: Build /doc-lib
-          script: npm run build:doc-lib
+        #        - stage: build-doc-lib
+        #          name: Build /doc-lib
+        #          script: npm run build:doc-lib
 
-        - stage: build-app-aot
-          name: Build /examples
-          before_script:
-              - cd ./projects/doc-lib
-              - npm install
-              - npm link
-              - cd ../../
-              - npm run build-components-doc
-              - npm run build-examples-doc
-          script:
-              npm run build:examples-aot
-              #        - stage: test
-              #          name: Unit tests for /components
-              #          script: npm run test:ci:components
-              #        - stage: test
-              #          name: Unit Tests for /doc-lib
-              #          script: npm run test:ci:doc-lib
+        #        - stage: build-app-aot
+        #          name: Build /examples
+        #          before_script:
+        #              - cd ./projects/doc-lib
+        #              - npm install
+        #              - npm link
+        #              - cd ../../
+        #              - npm run build-components-doc
+        #              - npm run build-examples-doc
+        #          script:
+        #              npm run build:examples-aot
+
+        #        - stage: test
+        #          name: Unit tests for /components
+        #          script: npm run test:ci:components
+        #        - stage: test
+        #          name: Unit Tests for /doc-lib
+        #          script: npm run test:ci:doc-lib
 
         - stage: publish
           name: Publishing components to npm registry
@@ -65,12 +66,11 @@ jobs:
                   repo: ps37/vmware-cloud-director-ui-components
                   branch: travis-test-4
               local_dir: dist/components
-
-        - stage: deploy
-          name: Deploying to Github pages
-          script: skip
-          deploy:
-              - provider: pages
-                skip_cleanup: true
-                github_token: $GH_TOKEN
-                local_dir: dist/examples
+        #        - stage: deploy
+        #          name: Deploying to Github pages
+        #          script: skip
+        #          deploy:
+        #              - provider: pages
+        #                skip_cleanup: true
+        #                github_token: $GH_TOKEN
+        #                local_dir: dist/examples
