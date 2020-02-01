@@ -5,15 +5,15 @@ cache:
     directories:
         - dist/components
         - dist/doc-lib
-        - projects/examples/gen/components-compodoc-documentation
-        - projects/examples/gen/examples-compodoc-documentation
+        #        - projects/examples/gen/components-compodoc-documentation
+        #        - projects/examples/gen/examples-compodoc-documentation
+        - dist/examples
 
 stages:
     - prepare
     - build-components-lib
     - build-doc-lib
-    - build-documentation
-    - build-app
+    - build-app-aot
     - test
     - name: publish
       if: branch = master
@@ -39,19 +39,16 @@ jobs:
           name: Build /doc-lib
           script: npm run build:doc-lib
 
-        - stage: build-documentation
-          name: Build Compodoc Documentation JSONS
-          script:
+        - stage: build-app
+          name: Build /examples
+          before_script:
               - cd ./projects/doc-lib
               - npm install
               - npm link
               - cd ../../
               - npm run build-components-doc
               - npm run build-examples-doc
-
-        - stage: build-app
-          name: Build /examples
-          script: npm run build:examples
+          script: npm run build:examples-aot
 
         #        - stage: test
         #          name: Unit tests for /components
@@ -63,4 +60,9 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
-          script: ng deploy --no-silent
+          script: skip
+          deploy:
+              - provider: pages
+                skip_cleanup: true
+                github_token: $GH_TOKEN
+                local_dir: dist/examples
