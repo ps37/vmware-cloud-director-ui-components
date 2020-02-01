@@ -49,9 +49,9 @@ jobs:
               - npm run build-components-doc
               - npm run build-examples-doc
 
-        #        - stage: build-app
-        #          name: Build /examples
-        #          script: npm run build:examples
+        - stage: build-app
+          name: Build /examples
+          script: npm run build:examples
 
         #        - stage: test
         #          name: Unit tests for /components
@@ -63,11 +63,4 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
-          script:
-              #              - cd ./projects/doc-lib
-              #              - npm install
-              #              - npm link
-              #              - cd ../../
-              #              - npm run build-components-doc
-              #              - npm run build-examples-doc
-              - ng deploy --no-silent
+          script: ng deploy --no-silent
