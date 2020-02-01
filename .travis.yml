@@ -13,7 +13,7 @@ stages:
     - build-app-aot
     - test
     - name: publish
-      if: branch = travis-test-4
+      if: branch = master
     - deploy
 jobs:
     include:
