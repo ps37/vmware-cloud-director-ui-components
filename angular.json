@@ -115,7 +115,7 @@
                   "with": "projects/examples/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": { "scripts": false, "styles": true },
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
