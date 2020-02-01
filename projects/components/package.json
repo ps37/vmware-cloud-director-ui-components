@@ -1,5 +1,8 @@
 {
-    "name": "@vcd/ui-components",
+    "name": "@psimhadri/ui-components",
+    "publishConfig": {
+        "access": "public"
+    },
     "version": "0.0.1",
     "peerDependencies": {
         "@angular/common": "^8.2.14",

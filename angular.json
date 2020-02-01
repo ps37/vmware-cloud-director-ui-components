@@ -115,7 +115,7 @@
                   "with": "projects/examples/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": false,
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -125,6 +125,11 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
@@ -191,12 +196,6 @@
             "production": {
               "devServerTarget": "examples:serve:production"
             }
-          }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "/vmware-cloud-director-ui-components/"
           }
         }
       }

@@ -5,10 +5,7 @@ cache:
     directories:
         - dist/components
         - dist/doc-lib
-        #        - projects/examples/gen/components-compodoc-documentation
-        #        - projects/examples/gen/examples-compodoc-documentation
         - dist/examples
-
 stages:
     - prepare
     - build-components-lib
@@ -16,9 +13,8 @@ stages:
     - build-app-aot
     - test
     - name: publish
-      if: branch = master
+      if: branch = travis-test-4
     - deploy
-
 jobs:
     include:
         #        - stage: prepare
@@ -48,15 +44,27 @@ jobs:
               - cd ../../
               - npm run build-components-doc
               - npm run build-examples-doc
-          script: npm run build:examples-aot
+          script:
+              npm run build:examples-aot
+              #        - stage: test
+              #          name: Unit tests for /components
+              #          script: npm run test:ci:components
+              #        - stage: test
+              #          name: Unit Tests for /doc-lib
+              #          script: npm run test:ci:doc-lib
 
-        #        - stage: test
-        #          name: Unit tests for /components
-        #          script: npm run test:ci:components
-
-        #        - stage: test
-        #          name: Unit Tests for /doc-lib
-        #          script: npm run test:ci:doc-lib
+        - stage: publish
+          name: Publishing components to npm registry
+          script: skip
+          deploy:
+              provider: npm
+              email: prudhvi.af121@gmail.com
+              api_key:
+                  secure: eBl4hoXKJ9iFuiOr6KyuH3uGTjexJBz7zJenlRubeDjXS9vfkZkirktF+qdyk8YFWv7dgOlqwuMlkPc3ajoZ82hHAEaR1CzOejvI52ku+BF2Ry/vmcMNxEvX8yZ+HOZZoDOuuME9Hr/0lL2hYfpMDjZTqDJ8RA7Z/bKOvpaeGKEedrHGA5JLUD5MInYLgLTByilN2atTqiFiFsU6EykeXOHlKI1xceyaNdFbYD4J1FRMC8urkLJkNqo5W6kuqIy13kz5Df4OAHnhNzkZozv0bjJSesrYWarIXcsTy2VtyyWvvDkpsOihocCOHqOjPR/XoQ89l2E/cLlypDU8yfWtkkJW0Jn3cX0VvrerSvSAXzSrMnxig8H+ErM+ALMjUWZjEOKeK9WLZGvKRBaQ9qo+mOMD194C0AY1U/si4crpBw607zEMm/HSZOwtRjf9UjDeAuaVDg7myq/9IIW9OqFY8rvjwqNma+FguBftGmEWeUmjU4u1pXChe0odNU4BigdC5TIEFON+hAo0CRbtdmE4YaoCjfPvzP0/bljFN4IkTabQMJBle+z10suB8uf8VMvM8lbaBssRUoF8QxYlcoYgNJScQgJbX3xOrN003TpMMwESCjwLMeTbK6mnwiPRwVvVpqNjVshKuG8SytPF3H0pvdBJUIwiqE8DzZZ13NIMLhc=
+              on:
+                  repo: ps37/vmware-cloud-director-ui-components
+                  branch: travis-test-4
+              local_dir: dist/components
 
         - stage: deploy
           name: Deploying to Github pages
