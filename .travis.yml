@@ -71,7 +71,8 @@ jobs:
               - cd ../../
               - npm run build-components-doc
               - npm run build-examples-doc
-              - npx ng deploy --no-silent
+              - npm run build:examples-aot
+              - npx angular-cli-ghpages -d ./dist/examples
 #deploy:
 #    provider: pages
 #    skip_cleanup: true
