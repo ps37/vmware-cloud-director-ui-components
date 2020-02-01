@@ -57,6 +57,8 @@ jobs:
         - stage: publish
           name: Publishing components to npm registry
           script: echo "Deploying to npm user psimhadri..."
+          before_deploy:
+              - cd ./dist/components
           deploy:
               edge: true
               provider: npm
@@ -66,7 +68,6 @@ jobs:
               on:
                   repo: ps37/vmware-cloud-director-ui-components
                   branch: travis-test-4
-              local_dir: dist/components
         #        - stage: deploy
         #          name: Deploying to Github pages
         #          script: skip
