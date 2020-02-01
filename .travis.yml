@@ -68,12 +68,6 @@ jobs:
               - cd ./projects/doc-lib
               - npm install
               - npm link
-              - cd ../../
-              - npm run build-components-doc
-              - npm run build-examples-doc
+              - npx build-components-doc
+              - npx run build-examples-doc
               - npx ng deploy --no-silent
-#deploy:
-#    provider: pages
-#    skip_cleanup: true
-#    github_token: $GH_TOKEN
-#    local_dir: ./dist/examples
