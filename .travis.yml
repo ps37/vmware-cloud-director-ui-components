@@ -40,15 +40,15 @@ jobs:
           name: Build /doc-lib
           script: npm run build:doc-lib
 
-        - stage: build-documentation
-          name: Build Compodoc Documentation JSONS
-          script:
-              - cd ./projects/doc-lib
-              - npm install
-              - npm link
-              - cd ../../
-              - npm run build-components-doc
-              - npm run build-examples-doc
+        #        - stage: build-documentation
+        #          name: Build Compodoc Documentation JSONS
+        #          script:
+        #              - cd ./projects/doc-lib
+        #              - npm install
+        #              - npm link
+        #              - cd ../../
+        #              - npm run build-components-doc
+        #              - npm run build-examples-doc
 
         #        - stage: build-app
         #          name: Build /examples
@@ -64,7 +64,14 @@ jobs:
 
         - stage: deploy
           name: Deploying to Github pages
-          script: npx ng deploy --no-silent
+          script:
+              - cd ./projects/doc-lib
+              - npm install
+              - npm link
+              - cd ../../
+              - npm run build-components-doc
+              - npm run build-examples-doc
+              - npx ng deploy --no-silent
 #deploy:
 #    provider: pages
 #    skip_cleanup: true
