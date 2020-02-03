@@ -49,7 +49,7 @@ jobs:
         #        - stage: test
         #          name: Unit tests for /components
         #          script: npm run test:ci:components
-5         #        - stage: test
+        #        - stage: test
         #          name: Unit Tests for /doc-lib
         #          script: npm run test:ci:doc-lib
 
@@ -68,7 +68,6 @@ jobs:
                   repo: ps37/vmware-cloud-director-ui-components
                   tags: true
                   condition: $TRAVIS_TAG = "npc"
-
         #        - stage: deploy
         #          name: Deploying to Github pages
         #          script: skip
