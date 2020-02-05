@@ -67,6 +67,7 @@ jobs:
                   secure: vFxxLJUkMhPdb5wqs8BW9bxsySmSCSBxwTWRqyMksSbC1qqmBQFlltkQbEOeom48mh0Gl5MOJ0PUzTjt5Q8JmqMKZaNxk5A85H9G0lkY03IuC2to3dd4Gb9SavQ8zhg8o2Rz8hwTkiZ0N67S1SaWN0EkeSNqq/B0IRWtpm7LHteNr3yfGPvFjYMmHZhc5OieLEnZ/BPi/IAOchzHmNfM8JpmVXeWptx9G/YcFSCXfIpjkYRXsA0ar82NlJIXpvzYDNUWnAEwgTEGSsmCN0OV89plmdaB+zNL4iqNem5r4pNiQe4i5wj1XVEdms46Q1kWyo/hEASYiiRrqGS9K09r65tbKgdPuMH5rXNUbUmi/N08IdySX2J7STNUUoHebYkDSoEKSXMQNu5XHhidtZ9dfr9ukg9wpefpvyCVLC2MbldM9fLPGeqrUBrh1hG81LbG4LRiDebZG/LijvyQuz/ts3Dw0ihwq/nQTMk9V3LDCu0FHuiADWszKRu2hci/JgxG65w23peY08dfBQxVg6+SplBe60F+ImKsTiqmFDyNqyqBzXvek8kj8QqjXzjJ5fxxyBELaqPJJl1Ibqs4NJalZ2beUALPmB/DH2SrLNeWlYXkQ2ray4ogSsuUjFzSuSh7UeZCI8kEXSC2cbZdCdIND1Wsp+jkHPQxZxCR+4oB9KE=
               on:
                   repo: ps37/vmware-cloud-director-ui-components
+                  all_branches: true
                   condition: $TRAVIS_BRANCH = components-v1.0.0
         #        - stage: deploy
         #          name: Deploying to Github pages
