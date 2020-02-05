@@ -67,7 +67,7 @@ jobs:
               on:
                   repo: ps37/vmware-cloud-director-ui-components
                   tags: true
-                  condition: $TRAVIS_TAG =~ /^components-v\d.\d.\d$/
+                  condition: ${TRAVIS_TAG} =~ ^components-v\d.\d.\d$
         #        - stage: deploy
         #          name: Deploying to Github pages
         #          script: skip
