@@ -69,7 +69,7 @@ jobs:
                   repo: ps37/vmware-cloud-director-ui-components
                   all_branches: true
                   tags: true
-                  condition: $TRAVIS_BRANCH =~ ^components-v\d.\d.\d$
+                  condition: $TRAVIS_BRANCH = components-v1.0.0
         #        - stage: deploy
         #          name: Deploying to Github pages
         #          script: skip
