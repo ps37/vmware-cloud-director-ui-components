@@ -60,6 +60,7 @@ jobs:
               - cd ./dist/components
           deploy:
               skip_cleanup: true
+              verbose: true
               provider: npm
               email: prudhvi.af121@gmail.com
               api_key:
