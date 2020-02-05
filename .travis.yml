@@ -59,7 +59,6 @@ jobs:
           before_deploy:
               - cd ./dist/components
           deploy:
-              edge: true
               skip_cleanup: true
               provider: npm
               email: prudhvi.af121@gmail.com
