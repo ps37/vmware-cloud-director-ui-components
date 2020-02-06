@@ -26,13 +26,13 @@ jobs:
         #          name: Lint /examples
         #          script: npm run lint examples
 
-        - stage: build-components-lib
-          name: Build /components
-          script: npm run build:components
+        #        - stage: build-components-lib
+        #          name: Build /components
+        #          script: npm run build:components
 
-        #        - stage: build-doc-lib
-        #          name: Build /doc-lib
-        #          script: npm run build:doc-lib
+        - stage: build-doc-lib
+          name: Build /doc-lib
+          script: npm run build:doc-lib
 
         #        - stage: build-app-aot
         #          name: Build /examples
@@ -55,9 +55,9 @@ jobs:
 
         - stage: publish
           name: Publishing components to npm registry
-          script: echo "Deploying @ps37/${TRAVIS_TAG}/${TRAVIS_BRANCH} to npm..."
+          script: echo "Deploying @ps37/${TRAVIS_TAG} to npm..."
           before_deploy:
-              - cd ./dist/components
+              - cd ./dist/doc-lib
           deploy:
               skip_cleanup: true
               verbose: true
@@ -68,7 +68,7 @@ jobs:
               on:
                   repo: ps37/vmware-cloud-director-ui-components
                   all_branches: true
-                  condition: $TRAVIS_TAG =~ ^components-v[0-999].[0-999].[0-999]$
+                  condition: $TRAVIS_TAG =~ ^doc-lib-v[0-999].[0-999].[0-999]$
         #        - stage: deploy
         #          name: Deploying to Github pages
         #          script: skip
