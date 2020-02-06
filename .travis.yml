@@ -54,7 +54,7 @@ jobs:
           script: npm run test:ci:doc-lib
 
         - stage: publish
-          name: Publishing components to npm registry
+          name: Publishing doc-lib to npm registry
           script: echo "Deploying @ps37/${TRAVIS_TAG} to npm..."
           before_deploy:
               - cd ./dist/doc-lib
