@@ -175,7 +175,6 @@ jobs:
               with:
                   node-version: '13'
                   registry-url: https://registry.npmjs.org/
-                  scope: '@ps37'
             - uses: actions/cache@v1
               with:
                   path: ./node_modules
@@ -184,6 +183,10 @@ jobs:
               with:
                   path: ./dist/components
                   key: ${{ github.sha }}-components
+            - name: Dump GitHub context
+              env:
+                  GITHUB_CONTEXT: ${{ toJson(github) }}
+              run: echo "$GITHUB_CONTEXT"
             - run: |
                   cd ./dist/components
                   pwd
