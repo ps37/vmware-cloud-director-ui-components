@@ -1,0 +1,8 @@
+name: 'Check components lib tag'
+description: 'Check components lib tag'
+outputs:
+    isComponentsTag: # id of output
+        description: 'boolean to check the match'
+runs:
+    using: 'node12'
+    main: 'index.js'
