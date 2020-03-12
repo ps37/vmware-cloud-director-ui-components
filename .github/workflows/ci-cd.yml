@@ -186,9 +186,8 @@ jobs:
             - id: check-components-tag
               uses: ./.github/actions/check-components-tag
             - name: Publish components@latest
-              #              if: steps.check-components-tag.outputs.isComponentsTag == 'true'
+              if: steps.check-components-tag.outputs.isComponentsTag == 'true'
               run: |
-                  echo "$IS_COMPONENTS_TAG"
                   cd ./dist/components
                   pwd
                   npm publish
