@@ -186,12 +186,11 @@ jobs:
             - id: check-components-tag
               uses: ./.github/actions/check-components-tag
             - name: Publish components@latest
-              #              if: IS_COMPONENTS_TAG == 'true'
+              if: IS_COMPONENTS_TAG == 'true'
               run: |
                   echo "$IS_COMPONENTS_TAG"
                   cd ./dist/components
-                  pwd
-                  npm publish
+                  npm publish --access public
               env:
                   IS_COMPONENTS_TAG: ${{steps.check-components-tag.outputs.isComponentsTag}}
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
