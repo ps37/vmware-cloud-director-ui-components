@@ -1,0 +1,8 @@
+name: 'Check components package change'
+description: 'Check components package change'
+outputs:
+    isComponentsPackageChanged: # id of output
+        description: 'boolean to check if component lib package.json changed'
+runs:
+    using: 'node12'
+    main: 'index.js'
