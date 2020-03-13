@@ -186,7 +186,7 @@ jobs:
             - id: check-components-tag
               uses: ./.github/actions/check-components-tag
             - name: Publish components@latest
-              if: steps.check-components-tag.outputs.isComponentsTag == 'true'
+              if: IS_COMPONENTS_TAG == 'true'
               run: |
                   cd ./dist/components
                   pwd
