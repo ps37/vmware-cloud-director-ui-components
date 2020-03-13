@@ -195,3 +195,32 @@ jobs:
               env:
                   IS_COMPONENTS_TAG: ${{steps.check-components-tag.outputs.isComponentsTag}}
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+#    publish-components-next:
+#        needs: [build-components-lib, unit-testing]
+#        runs-on: ubuntu-latest
+#        steps:
+#            - uses: actions/checkout@v2
+#            - uses: actions/setup-node@v1
+#              with:
+#                  node-version: '13'
+#                  registry-url: https://registry.npmjs.org/
+#            - uses: actions/cache@v1
+#              with:
+#                  path: ./node_modules
+#                  key: ${{github.sha}}-node_modules
+#            - uses: actions/cache@v1
+#              with:
+#                  path: ./dist/components
+#                  key: ${{ github.sha }}-components
+#            - id: check-components-package
+#              uses: ./.github/actions/check-components-package
+#            - name: Publish components@next
+#                #              if: IS_COMPONENTS_TAG == 'true'
+#              run: |
+#                  echo "$IS_COMPONENTS_PACKAGE_CHANGED"
+#                  cd ./dist/components
+#                  pwd
+#                  npm publish
+#              env:
+#                  IS_COMPONENTS_PACKAGE_CHANGED: ${{steps.check-components-package.outputs.isComponentsPackageChanged}}
+#                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
