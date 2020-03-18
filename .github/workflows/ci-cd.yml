@@ -223,7 +223,7 @@ jobs:
               with:
                   lib-name: 'components'
             - name: Publish components@next
-              if: steps.check-components-tag.outputs.isLibTag != 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true' AND github.ref == 'master'
+              if: steps.check-components-tag.outputs.isLibTag != 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true' && github.ref == 'master'
               run: |
                   cd ./dist/components
                   npm publish
