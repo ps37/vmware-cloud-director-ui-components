@@ -201,7 +201,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  fetch-depth: 5
+                  fetch-depth: 2
             - uses: actions/setup-node@v1
               with:
                   node-version: '13'
