@@ -201,7 +201,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  fetch-depth: 2
+                  fetch-depth: 5
             - uses: actions/setup-node@v1
               with:
                   node-version: '13'
@@ -223,7 +223,7 @@ jobs:
               with:
                   lib-name: 'components'
             - name: Publish components@next
-              if: steps.check-components-tag.outputs.isLibTag != 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true'
+              if: steps.check-components-tag.outputs.isLibTag != 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true' AND github.ref == 'master'
               run: |
                   cd ./dist/components
                   npm publish
