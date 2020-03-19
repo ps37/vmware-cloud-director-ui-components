@@ -61,6 +61,9 @@ the extremely long folder name.
 ## Publishing
 
 Publishing happens through the CI/CD pipeline. See [package.json](.github/workflows/ci-cd.yml)
+Steps for publishing an @next release:
+
+Steps for publishing an @latest release:
 
 ## Angular CLI
 
