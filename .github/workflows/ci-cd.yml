@@ -206,7 +206,7 @@ jobs:
             - name: Install node_modules
               run: npm ci
             - id: check-release-tag
-              uses: ./.github/actions/check-lib-tag
+              uses: ./.github/actions/check-release-tag
             - id: check-i18n-package
               uses: ./.github/actions/check-lib-package
               with:
@@ -247,7 +247,7 @@ jobs:
             - name: Install node_modules
               run: npm ci
             - id: check-release-tag
-              uses: ./.github/actions/check-lib-tag
+              uses: ./.github/actions/check-release-tag
             - id: check-route-analyzer-package
               uses: ./.github/actions/check-lib-package
               with:
