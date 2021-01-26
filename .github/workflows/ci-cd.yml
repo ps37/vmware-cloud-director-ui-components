@@ -178,7 +178,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
             - name: Publish components@latest
-              if: steps.check-release-tag.outputs.isReleaseTag == 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+              if: steps.check-release-tag.outputs.isReleaseTag == 'true' && steps.check-components-package.outputs.isLibPackageChanged == 'true' && github.event_name == 'push'
               run: |
                   cd ./dist/components
                   npm publish

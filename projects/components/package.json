@@ -1,6 +1,6 @@
 {
     "name": "@ps37/ui-components",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "dependencies": {
         "@ngx-formly/core": "5.6.1"
     },
